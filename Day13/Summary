@@ -1,0 +1,75 @@
+Both Solution 1 and Solution 2 aim to implement a linked list data structure with similar functionalities, but they have differences in their design and implementation. Let's compare them step by step.
+
+Solution 1
+ListNode Class
+Represents a single node in the linked list.
+Contains a val to store the node's value and a next to point to the next node.
+MyLinkedList Class
+Manages the linked list.
+Has a head to point to the first node and size to keep track of the number of nodes.
+Methods in MyLinkedList
+get(self, index: int) -> int:
+
+Retrieves the value at the specified index.
+Returns -1 if the index is out of bounds.
+addAtHead(self, val: int) -> None:
+
+Adds a node with the specified value at the beginning.
+Uses addAtIndex(0, val) for implementation.
+addAtTail(self, val: int) -> None:
+
+Adds a node with the specified value at the end.
+Uses addAtIndex(self.size, val) for implementation.
+addAtIndex(self, index: int, val: int) -> None:
+
+Adds a node with the specified value before the node at the given index.
+Handles edge cases where the index is greater than the size or less than 0.
+deleteAtIndex(self, index: int) -> None:
+
+Deletes the node at the specified index.
+Adjusts the size accordingly.
+Solution 2
+Node Class
+Similar to ListNode in Solution 1.
+Represents a single node in the linked list with data and next.
+LinkedList Class
+Manages the linked list.
+Has a head to point to the first node.
+Methods in LinkedList
+insertAtBegin(self, data):
+
+Adds a node with the specified value at the beginning.
+insertAtIndex(self, data, index):
+
+Adds a node with the specified value at the given index.
+Handles edge cases where the index is out of bounds.
+insertAtEnd(self, data):
+
+Adds a node with the specified value at the end.
+updateNode(self, val, index):
+
+Updates the value of the node at the specified index.
+remove_first_node(self):
+
+Removes the first node.
+remove_last_node(self):
+
+Removes the last node.
+remove_at_index(self, index):
+
+Removes the node at the specified index.
+remove_node(self, data):
+
+Removes the first node with the specified value.
+sizeOfLL(self):
+
+Returns the size of the linked list.
+printLL(self):
+
+Prints the values of all nodes in the linked list.
+Differences and Similarities
+Size Management: Solution 1 explicitly tracks the size of the list, making certain operations like addAtTail and get more efficient. Solution 2 calculates the size on demand with the sizeOfLL method.
+Functionality: Both solutions provide methods for adding, updating, and removing nodes. However, Solution 1 provides a more robust and concise approach with fewer explicit methods but more combined functionality (e.g., addAtIndex for adding at head, tail, and specific index).
+Implementation: Solution 1 is more concise with fewer methods, relying on internal methods (addAtIndex for multiple functionalities). Solution 2 has a more traditional approach with separate methods for each operation.
+Edge Cases: Both handle edge cases but in slightly different ways. Solution 1 ensures indexes are within bounds by checking index < 0 or index >= self.size in multiple methods. Solution 2 checks for valid indexes and handles them differently in methods like insertAtIndex and remove_at_index.
+Overall, Solution 1 is more efficient and compact, while Solution 2 is more explicit and traditional in its approach.
